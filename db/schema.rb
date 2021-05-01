@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_205131) do
+ActiveRecord::Schema.define(version: 2021_05_01_213543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2021_05_01_205131) do
     t.string "client_name"
     t.string "client_email"
     t.string "client_address"
-    t.float "total"
     t.bigint "account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "total", default: 0.0
     t.index ["account_id"], name: "index_invoices_on_account_id"
   end
 
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2021_05_01_205131) do
     t.string "name"
     t.integer "quantity"
     t.float "price"
-    t.float "total"
     t.bigint "invoice_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "total", default: 0.0
     t.index ["invoice_id"], name: "index_items_on_invoice_id"
   end
 
