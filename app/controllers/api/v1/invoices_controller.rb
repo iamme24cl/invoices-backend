@@ -16,9 +16,20 @@ class Api::V1::InvoicesController < ApplicationController
   end
 
   def create
+    invoice = @account.invoices.build(invoice_params)
+    if invoice.save
+      render json: invoice, status: :accepted
+    else
+      render json: { errors: invoice.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   def update
+    if @invoice.update(invoice_params)
+      render json: @invoice, status: :accepted
+    else
+      render json: { errors: @invoice.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   def destroy
