@@ -18,6 +18,7 @@ class Api::V1::InvoicesController < ApplicationController
   def create
     invoice = @account.invoices.build(invoice_params)
     if invoice.save
+      invoice.update_total
       render json: invoice, status: :accepted
     else
       render json: { errors: invoice.errors.full_messages }, status: :unprocessible_entity
@@ -26,6 +27,7 @@ class Api::V1::InvoicesController < ApplicationController
 
   def update
     if @invoice.update(invoice_params)
+      @invoice.update_total
       render json: @invoice, status: :accepted
     else
       render json: { errors: @invoice.errors.full_messages }, status: :unprocessible_entity
@@ -41,7 +43,8 @@ class Api::V1::InvoicesController < ApplicationController
     params.require(:invoice).permit(
       :payment_due, 
       :description, 
-      :payment_terms, 
+      :payment_terms,
+      :status, 
       :client_name,
       :client_email,
       :client_address,
