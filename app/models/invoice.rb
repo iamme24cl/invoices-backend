@@ -1,6 +1,9 @@
 class Invoice < ApplicationRecord
   has_many :items
   belongs_to :account
+  after_initialize :update_total
+
+  accepts_nested_attributes_for :items
 
   def update_total
     # item_totals = []

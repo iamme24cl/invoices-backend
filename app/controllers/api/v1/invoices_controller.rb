@@ -44,7 +44,8 @@ class Api::V1::InvoicesController < ApplicationController
       :payment_terms, 
       :client_name,
       :client_email,
-      :client_address 
+      :client_address,
+      :items_attributes => [:name, :price, :quantity]
     )
   end
 
