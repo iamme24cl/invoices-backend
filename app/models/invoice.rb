@@ -1,5 +1,5 @@
 class Invoice < ApplicationRecord
-  has_many :items
+  has_many :items, dependent: :destroy
   belongs_to :account
 
   accepts_nested_attributes_for :items

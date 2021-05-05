@@ -35,6 +35,9 @@ class Api::V1::InvoicesController < ApplicationController
   end
 
   def destroy
+    @invoice.destroy
+
+    render json: { message: "Invoice Deleted!"}
   end
 
   private
