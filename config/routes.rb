@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :accounts, only: [:index, :show] do
+      resources :accounts, only: [:index, :show, :create, :update] do
         resources :invoices, only: [:index, :show, :create, :update, :destroy] do
           resources :items, only: [:update, :destroy]
         end
