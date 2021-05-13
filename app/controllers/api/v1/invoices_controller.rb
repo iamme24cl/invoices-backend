@@ -18,7 +18,7 @@ class Api::V1::InvoicesController < ApplicationController
   def create
     invoice = @account.invoices.build(invoice_params)
     if invoice.save
-      render json: invoice, status: :accepted
+      render json: invoice.account, status: :accepted
     else
       render json: { errors: invoice.errors.full_messages }, status: :unprocessible_entity
     end
@@ -27,7 +27,7 @@ class Api::V1::InvoicesController < ApplicationController
   def update
     if @invoice.update(invoice_params)
       @invoice.update_total
-      render json: @invoice, status: :accepted
+      render json: @invoice.account, status: :accepted
     else
       render json: { errors: @invoice.errors.full_messages }, status: :unprocessible_entity
     end
@@ -36,15 +36,15 @@ class Api::V1::InvoicesController < ApplicationController
   def destroy
     @invoice.destroy
 
-    render json: { message: "Invoice Deleted!"}
+    render json: @account, status: :accepted
   end
 
   private
 
   def invoice_params
     params.require(:invoice).permit(
-      :payment_due, 
       :description, 
+      :payment_due, 
       :payment_terms,
       :status, 
       :client_name,
