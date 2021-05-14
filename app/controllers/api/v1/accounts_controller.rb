@@ -18,7 +18,7 @@ class Api::V1::AccountsController < ApplicationController
     if account.save
       render json: account, status: :accepted
     else
-      render json: { errors: account.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: account.errors.full_messages }
     end
   end
 
@@ -26,14 +26,14 @@ class Api::V1::AccountsController < ApplicationController
     if @account.update(account_params)
       render json: @account, status: :accepted
     else
-      render json: { errors: @account.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: @account.errors.full_messages }
     end
   end
 
   private
 
   def account_params
-    params.require(:account).permit(:accountname, :password, :address)
+    params.require(:account).permit(:id, :accountname, :password, :address)
   end
 
   def find_account
