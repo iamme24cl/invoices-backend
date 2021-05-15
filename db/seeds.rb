@@ -28,4 +28,6 @@ item_data =   {
 
 invoice.items.build(item_data)
 
+invoice.set_random_code
+
 account.save

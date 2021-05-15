@@ -17,4 +17,14 @@ class Invoice < ApplicationRecord
     # self.invoice_total = item_totals.reduce(0) { |sum, total| sum + total }
     self.invoice_total = Invoice.joins(:items).where("items.invoice_id =?", self.id).sum(:total)
   end
+
+  def generate_code(num)
+    charset = Array('A'..'Z')
+    Array.new(num) { charset.sample }.join
+  end
+
+  def set_random_code
+    self.random_code = generate_code(5) + self.id.to_s
+  end
+ 
 end

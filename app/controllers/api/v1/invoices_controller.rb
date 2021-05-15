@@ -17,7 +17,7 @@ class Api::V1::InvoicesController < ApplicationController
 
   def create
     invoice = @account.invoices.build(invoice_params)
-    if invoice.save
+    if invoice.set_random_code && invoice.save
       render json: invoice.account, status: :accepted
     else
       render json: { errors: invoice.errors.full_messages }, status: :unprocessible_entity
