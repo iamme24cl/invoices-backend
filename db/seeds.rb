@@ -5,29 +5,142 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-account = Account.create(accountname: "My Account", address: "19 Union Terrace, London, E1 3EZ, United Kingdom", password: "testing")
+account = Account.create(accountname: "Cool Lama & Co.", address: "1578 Miranda Ave, San Diego, 95467, United States of America", password: "testing")
 
-invoice_data = {
-  payment_due: "2021-08-19",
-  description: "Re-branding",
-  payment_terms: 15,
-  status: "pending",
-  client_name: "Jensen Huang",
-  client_email: "jensenh@mail.com",
-  client_address: "106 Kendell Street, Sharrington, NR24 5WQ, United Kingdom"
-}
+invoice_data = [
+  {
+    payment_due: "2021-08-19",
+    description: "Re-branding",
+    payment_terms: 15,
+    status: "pending",
+    client_name: "Jensen Huang",
+    client_email: "jensenh@mail.com",
+    client_address: "106 Kendell Street, Sharrington, NR24 5WQ, United Kingdom"
+  },
+  {
+    payment_due: "2021-09-20",
+    description: "Graphic Design",
+    payment_terms: 30,
+    status: "pending",
+    client_name: "Alex Grim",
+    client_email: "alexfrim@mail.com",
+    client_address: "19 Union Terrace, London, E1 3EZ, United Kingdom"
+  },
+  { 
+    payment_due: "2021-10-01",
+    description: "Website Redesign",
+    payment_terms: 15,
+    status: "paid",
+    client_name: "Jim Morrison",
+    client_email: "jm@mail.com",
+    client_address: "79 Dover Rd, WestHall, 95578, United States of America"
+  },
+  { 
+    payment_due: "2021-10-11",
+    description: "Logo Concept",
+    payment_terms: 1,
+    status: "pending",
+    client_name: "Alysa Werner",
+    client_email: "alysa@mail.com",
+    client_address: "63 Wareick Rd, Home Town, 95578, United States of America"
+  },
+  { 
+    payment_due: "2021-10-14",
+    description: "Re-branding",
+    payment_terms: 15,
+    status: "pending",
+    client_name: "Melissa Clarke",
+    client_email: "melissa.clark@mail.com",
+    client_address: "14 Abbey Row, Pasadena, 65407, United States of America"
+  },
+  { 
+    payment_due: "2021-11-12",
+    description: "Logo Re-design",
+    payment_terms: 15,
+    status: "draft",
+    client_name: "Anita Wainwright",
+    client_email: "anita.wayne@mail.com",
+    client_address: "1156 Heinz Lane, Napa Valley, 98765, United States of America"
+  }
+]
 
-invoice = account.invoices.build(invoice_data)
+items = [
+  [
+    {
+      name: "Brand Guidelines",
+      price: 1800.00,
+      quantity: 1
+    },
+    {
+      name: "New Logo",
+      price: 1532.33,
+      quantity: 1
+    },
+    {
+      name: "Social Medial Consulting",
+      price: 2500.00,
+      quantity: 1
+    }
+  ],
+  [
+    {
+      name: "Banner Design",
+      price: 156.00,
+      quantity: 1
+    },
+    {
+      name: "Email Design",
+      price: 200.00,
+      quantity: 2
+    }
+  ],
+  [
+    {
+      name: "Webiste Redisgn",
+      price: 14002.33,
+      quantity: 1
+    }
+  ],
+  [
+    {
+      name: "Logo Sketches",
+      price: 102.04,
+      quantity: 1
+    }
+  ],
+  [
+    {
+      name: "New Logo",
+      price: 1532.33,
+      quantity: 1
+    },
+    {
+      name: "Brand Guidelines",
+      price: 2500.00,
+      quantity: 1
+    }
+  ],
+  [
+    {
+      name: "Logo Sketches",
+      price: 102.04,
+      quantity: 1
+    }
+  ]
+]
 
-item_data =   {
-  name: "Brand Guidelines",
-  quantity: 1,
-  price: 1800.90,
-  total: 1800.90
-}
+invoice_data.each do |data|
+  invoice = account.invoices.build(data)
+  invoice.set_random_code
+  invoice.save
+end
 
-invoice.items.build(item_data)
+idx = 0
+account.invoices.each do |invoice|
+  invoice.items.build(items[idx])
+  idx = idx + 1
+  invoice.save
+end
 
-invoice.set_random_code
 
 account.save
