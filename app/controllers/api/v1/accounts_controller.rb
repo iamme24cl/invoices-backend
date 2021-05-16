@@ -33,7 +33,7 @@ class Api::V1::AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:id, :accountname, :password, :address)
+    params.require(:account).permit(:accountname, :password, :address)
   end
 
   def find_account
