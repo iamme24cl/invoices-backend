@@ -7,7 +7,7 @@ class Api::V1::ItemsController < ApplicationController
 
       render json: @item, status: :accepted
     else
-      render json: { errors: item.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: item.errors.full_messages }
     end
   end
 

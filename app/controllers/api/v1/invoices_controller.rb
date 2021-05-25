@@ -20,7 +20,7 @@ class Api::V1::InvoicesController < ApplicationController
     if invoice.set_random_code && invoice.save
       render json: invoice.account, status: :accepted
     else
-      render json: { errors: invoice.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: invoice.errors.full_messages }
     end
   end
 
@@ -29,7 +29,7 @@ class Api::V1::InvoicesController < ApplicationController
       @invoice.update_total
       render json: @invoice.account, status: :accepted
     else
-      render json: { errors: @invoice.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: @invoice.errors.full_messages }
     end
   end
 
