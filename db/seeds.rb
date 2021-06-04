@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-account = Account.create(accountname: "Cool Lama & Co.", address: "1578 Miranda Ave, San Diego, 95467, United States of America", password: "testing")
+account = Account.create(
+    accountname: "Cool Lama & Co.", 
+    address: "1578 Miranda Ave, San Diego, 95467, United States of America", 
+    password: "testing"
+  )
 
 invoice_data = [
   {
