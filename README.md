@@ -1,7 +1,9 @@
 # Invoices Backend
 > This application creates and manages Invoices for an account.
 
-> Live demo [_here_](https://www.loom.com/share/5e6c1d5a44764bf68c366c3db1350c6e). 
+> Live demo hosted on heroku [_here_](https://my-invoices.netlify.app/).
+
+> Here is the link to the [_Frontend_](https://github.com/iamme24cl/invoices-frontend). 
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -48,14 +50,14 @@ invoice_data = [
 ```
 
 ## Technologies Used
-Ruby on Rails
+Ruby on Rails, PostgreSQL
 
 ## Usage
 * Clone this backend repository to your machine  https://github.com/iamme24cl/invoices-backend
 * Run `bundle` to install all gems listed in the gemfile
 * Run `rails db:create && db:migrate` to create and migrate the database (If you are on a windows machine, you will need to make sure your PostgreSQL server is running. You can easily manage this in the PGAdmin desktop application.)
 * Run `rails s` to run the server
-* On Your front-end folder run `npm install && npm start` to install all dependecies listed in the package.json file and start the server and run the application in the browser.
+* On the  [_frontend_](https://github.com/iamme24cl/invoices-frontend) folder run `npm install && npm start` to install all dependecies listed in the package.json file and start the server and run the application in the browser.
 
 ## Project Status
 Project is: _in progress_ . I intend to add more features to this application as I learn new skills.
