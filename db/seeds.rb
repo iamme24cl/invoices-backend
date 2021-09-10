@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 account = Account.create(
     accountname: "Cool Lama & Co.", 
-    address: "1578 Miranda Ave, San Diego, 95467, United States of America", 
+    address: "1578 Miranda Ave, San Diego, CA, 95467", 
     password: "testing"
   )
 
@@ -19,7 +19,7 @@ invoice_data = [
     status: "pending",
     client_name: "Jensen Huang",
     client_email: "jensenh@mail.com",
-    client_address: "106 Kendell Street, Sharrington, NR24 5WQ, United Kingdom"
+    client_address: "106 Kendell Street, Sharrington, WA, 44261"
   },
   {
     payment_due: "2021-09-20",
@@ -28,7 +28,7 @@ invoice_data = [
     status: "pending",
     client_name: "Alex Grim",
     client_email: "alexfrim@mail.com",
-    client_address: "19 Union Terrace, London, E1 3EZ, United Kingdom"
+    client_address: "19 Union Terrace, Napa, CA, 94855"
   },
   { 
     payment_due: "2021-10-01",
@@ -37,7 +37,7 @@ invoice_data = [
     status: "paid",
     client_name: "Jim Morrison",
     client_email: "jm@mail.com",
-    client_address: "79 Dover Rd, WestHall, 95578, United States of America"
+    client_address: "79 Dover Rd, WestHall, NY, 75412"
   },
   { 
     payment_due: "2021-10-11",
@@ -46,7 +46,7 @@ invoice_data = [
     status: "pending",
     client_name: "Alysa Werner",
     client_email: "alysa@mail.com",
-    client_address: "63 Wareick Rd, Home Town, 95578, United States of America"
+    client_address: "63 Wareick Rd, Home Town, TX, 55849"
   },
   { 
     payment_due: "2021-10-14",
@@ -55,7 +55,7 @@ invoice_data = [
     status: "pending",
     client_name: "Melissa Clarke",
     client_email: "melissa.clark@mail.com",
-    client_address: "14 Abbey Row, Pasadena, 65407, United States of America"
+    client_address: "14 Abbey Row, Pasadena, CA, 94455"
   },
   { 
     payment_due: "2021-11-12",
@@ -64,7 +64,7 @@ invoice_data = [
     status: "draft",
     client_name: "Anita Wainwright",
     client_email: "anita.wayne@mail.com",
-    client_address: "1156 Heinz Lane, Napa Valley, 98765, United States of America"
+    client_address: "1156 Heinz Lane, Napa Valley, CA, 94452"
   }
 ]
 
