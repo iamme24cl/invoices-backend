@@ -2,13 +2,20 @@ class Api::V1::AccountsController < ApplicationController
   before_action :find_account, only: [:show, :update]
 
   def index
-    accounts = Account.all 
-    
-    render json: accounts
+    @accounts = Account.all
+    if @accounts
+      render json: @accounts
+    else
+      render json: {status: 500, errors: @accounts.errors.full_messages}
+    end 
   end
   
   def show
-    render json: @account
+    if @account
+      render json: @account
+    else
+      render json: {status: 500, errors: @account.errors.full_messages}
+    end
   end
 
   def create
@@ -16,9 +23,10 @@ class Api::V1::AccountsController < ApplicationController
     # byebug
     account = Account.new(account_params)
     if account.save
-      render json: account, status: :accepted
+      login!
+      render json: account, status: :created
     else
-      render json: { errors: account.errors.full_messages }
+      render json: {status: 500, errors: account.errors.full_messages }
     end
   end
 
@@ -26,7 +34,7 @@ class Api::V1::AccountsController < ApplicationController
     if @account.update(account_params)
       render json: @account, status: :accepted
     else
-      render json: { errors: @account.errors.full_messages }
+      render json: {status: 500, errors: @account.errors.full_messages }
     end
   end
 
