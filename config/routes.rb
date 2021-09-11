@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post '/login' => 'sessions#create'
+      post '/logout' => 'sessions#destroy'
+      get '/logged_in' => 'sessions#is_logged_in?'
       resources :accounts, only: [:index, :show, :create, :update] do
         resources :invoices, only: [:index, :create, :update, :destroy] do
           resources :items, only: [:update, :destroy]
