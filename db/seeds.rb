@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 account = Account.create(
-    accountname: "Cool Lama & Co.", 
+    accountname: "Cool Lama & Co.",
+    email: "cool@mail.com",
     address: "1578 Miranda Ave, San Diego, CA, 95467", 
     password: "testing"
   )

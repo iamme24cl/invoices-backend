@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
   has_many :invoices
-  validates :accountname, :address, presence: true
+  validates :accountname, :email, :address, presence: true
   has_secure_password
 end
