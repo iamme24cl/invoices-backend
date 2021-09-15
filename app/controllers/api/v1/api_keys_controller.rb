@@ -7,9 +7,9 @@ class Api::V1::ApiKeysController < ApplicationController
   def index
     account = Account.find_by(id: current_bearer.id) 
     if account
-      render json: {account: account, api_keys: account.api_keys}
+      render json: account
     else
-      render json: {logged_in: false, account: {}}
+      render json: {status: 401, logged_in: false, account: {}}
     end
   end
  
@@ -18,7 +18,7 @@ class Api::V1::ApiKeysController < ApplicationController
     if account&.authenticate(params[:password]) 
         api_key = account.api_keys.create! token: SecureRandom.hex 
         if api_key.save
-          render json: api_key, status: :created
+          render json: account, status: :created
         else
           render status: :unauthorized
         end
