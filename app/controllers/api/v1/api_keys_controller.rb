@@ -9,7 +9,7 @@ class Api::V1::ApiKeysController < ApplicationController
     if account
       render json: account
     else
-      render json: {status: 401, logged_in: false, account: {}}
+      render json: {status: 401}
     end
   end
  

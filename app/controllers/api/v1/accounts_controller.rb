@@ -20,10 +20,10 @@ class Api::V1::AccountsController < ApplicationController
 
   def create
     # binding.pry
-    # byebug
     account = Account.new(account_params)
     if account.save
-      login!
+      # byebug
+      api_key = account.api_keys.create! token: SecureRandom.hex
       render json: account, status: :created
     else
       render json: {status: 500, errors: account.errors.full_messages }
