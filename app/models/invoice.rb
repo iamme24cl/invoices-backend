@@ -13,11 +13,6 @@ class Invoice < ApplicationRecord
   accepts_nested_attributes_for :items
 
   def update_total
-    # item_totals = []
-    # self.items.each do |item|
-    #   item_totals << item.total
-    # end
-    # self.invoice_total = item_totals.reduce(0) { |sum, total| sum + total }
     self.invoice_total = Invoice.joins(:items).where("items.invoice_id =?", self.id).sum(:total)
   end
 
@@ -29,5 +24,4 @@ class Invoice < ApplicationRecord
   def set_random_code
     self.random_code = generate_code(5) + self.id.to_s
   end
- 
 end

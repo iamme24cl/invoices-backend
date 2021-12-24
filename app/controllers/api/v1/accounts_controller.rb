@@ -1,4 +1,5 @@
 class Api::V1::AccountsController < ApplicationController
+  skip_before_action :authenticate_with_api_key!, only: [:create]
   before_action :find_account, only: [:show, :update]
 
   def index
@@ -26,7 +27,7 @@ class Api::V1::AccountsController < ApplicationController
       api_key = account.api_keys.create! token: SecureRandom.hex
       render json: account, status: :created
     else
-      render json: {status: 500, errors: account.errors.full_messages }
+      render json: {errors: account.errors.full_messages }, status: 201
     end
   end
 
