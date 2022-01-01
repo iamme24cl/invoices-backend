@@ -1,15 +1,9 @@
 class Invoice < ApplicationRecord
   has_many :items, dependent: :destroy
   belongs_to :account
-
   validates :payment_due, :description, :payment_terms, :status, :client_name, :client_email, :client_address, presence: true
-
   validates :payment_terms, acceptance: { accept: [1, 15, 30], message:  "Payment terms must be Net 15 or 30" }
-  
   validates :status, acceptance: { accept: ['draft', 'pending', 'paid'], message: "Must be draft, pending or paid" }
-
-  after_initialize :update_total
-
   accepts_nested_attributes_for :items
 
   def update_total
