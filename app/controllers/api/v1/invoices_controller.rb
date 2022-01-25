@@ -19,6 +19,7 @@ class Api::V1::InvoicesController < ApplicationController
     invoice = @account.invoices.build(invoice_params)
     invoice.set_random_code 
     if invoice.save
+      invoice.update_total
       render json: invoice, status: :accepted
     else
       render json: { errors: invoice.errors.full_messages }
