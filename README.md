@@ -25,7 +25,24 @@ invoice_data = [
     status: "pending",
     client_name: "Jensen Huang",
     client_email: "jensenh@mail.com",
-    client_address: "106 Kendell Street, Sharrington, NR24 5WQ, United Kingdom"
+    client_address: "106 Kendell Street, Sharrington, NR24 5WQ, United Kingdom",
+    items: [
+      {
+        name: "Brand Guidelines",
+        price: 1800.00,
+        quantity: 1
+      },
+      {
+        name: "New Logo",
+        price: 1532.33,
+        quantity: 1
+      },
+      {
+        name: "Social Medial Consulting",
+        price: 2500.00,
+        quantity: 1
+      }
+    ],
   },
   {
     payment_due: "2021-09-20",
@@ -34,17 +51,27 @@ invoice_data = [
     status: "pending",
     client_name: "Alex Grim",
     client_email: "alexfrim@mail.com",
-    client_address: "19 Union Terrace, London, E1 3EZ, United Kingdom"
+    client_address: "19 Union Terrace, London, E1 3EZ, United Kingdom",
+    items: [
+      {
+        name: "Banner Design",
+        price: 156.00,
+        quantity: 1
+      },
+      {
+        name: "Email Design",
+        price: 200.00,
+        quantity: 2
+      }
+    ],
+    [
+      {
+        name: "Webiste Redisgn",
+        price: 14002.33,
+        quantity: 1
+      }
+    ],
   },
-  { 
-    payment_due: "2021-10-01",
-    description: "Website Redesign",
-    payment_terms: 15,
-    status: "paid",
-    client_name: "Jim Morrison",
-    client_email: "jm@mail.com",
-    client_address: "79 Dover Rd, WestHall, 95578, United States of America"
-  }
  ]
 ```
 
