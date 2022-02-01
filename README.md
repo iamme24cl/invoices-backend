@@ -1,15 +1,14 @@
 # Invoices Backend
-> This application creates and manages Invoices for an account.
+This application creates and manages Invoices for an account.
 
-> Live demo hosted on heroku [_here_](https://my-invoices.netlify.app/).
+Live demo hosted on heroku [_here_](https://my-invoices.netlify.app/).
 
-> Here is the link to the [_Frontend_](https://github.com/iamme24cl/invoices-frontend). 
+Here is the link to the [_Frontend_](https://github.com/iamme24cl/invoices-frontend). 
 
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Usage](#usage)
-* [Project Status](#project-status)
 * [Contact](#contact)
 
 
@@ -59,8 +58,32 @@ Ruby on Rails, PostgreSQL
 * Run `rails s` to run the server
 * On the  [_frontend_](https://github.com/iamme24cl/invoices-frontend) folder run `npm install && npm start` to install all dependecies listed in the package.json file and start the server and run the application in the browser.
 
-## Project Status
-Project is: _in progress_ . I intend to add more features to this application as I learn new skills.
+---
+##### Login Page
+![login page](demo-images/login-page.png)
+--
+##### Home Page
+![home page](demo-images/home-page.png)
+--
+##### Filter Invoices
+![search1 page](demo-images/search-1.png)
+--
+##### Filter Invoices
+![search2 page](demo-images/search-2.png)
+--
+##### Invoice Form with dynamically generated and removed form fields for items
+![form page](demo-images/invoice-form.png)
+--
+##### Invoice Page
+![invoice page](demo-images/invoice.png)
+--
+##### Download as PDF
+![pdf page](demo-images/pdf-page.png)
+--
+##### Print Page
+![print page](demo-images/print-page.png)
+--
+
 
 
 ## Contact
