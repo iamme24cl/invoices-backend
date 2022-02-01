@@ -15,7 +15,7 @@ Here is the link to the [_Frontend_](https://github.com/iamme24cl/invoices-front
 ## General Information
 - Create, update and delete invoices.
 - Easily manage invoicing your Clients
-- The following json response is expected from this api
+- The following is an example json response expected from this api
 ```
 invoice_data = [
   {
