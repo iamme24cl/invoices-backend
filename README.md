@@ -1,8 +1,6 @@
 # Invoices Backend
 This application creates and manages Invoices for an account.
 
-Live demo hosted on heroku [_here_](https://my-invoices.netlify.app/).
-
 Here is the link to the [_Frontend_](https://github.com/iamme24cl/invoices-frontend). Demo Video hosted [_here_](https://www.loom.com/share/4c4f5df831e14e61827c769807e2b9e4?sharedAppSource=personal_library).
 
 ## Table of Contents
